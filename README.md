@@ -1,104 +1,73 @@
-# Personalized Content Recommendation System (Hybrid)
+# Machine Learning Projects Portfolio
 
-This project implements a **Netflix-style personalized recommendation system** using a **hybrid approach** that combines **collaborative filtering** and **content-based filtering**, built as a **clean, reproducible, end-to-end machine learning pipeline**.
+This repository contains a curated collection of **end-to-end Machine Learning and Data Engineering projects** that demonstrate my experience in building **scalable, reproducible, and production-style ML systems**.
 
-The system is designed with **software engineering best practices**, modular code structure, and offline evaluation using ranking metrics.
+The projects emphasize:
+- Practical machine learning algorithms
+- Data preprocessing and feature engineering
+- Model evaluation using appropriate metrics
+- Clean software engineering practices
+- Real-world datasets and problem statements
 
----
+Each project is organized as an independent, runnable module with its own documentation and scripts.
 
-## 🔍 Problem Statement
-
-Personalized recommendations are a core component of modern streaming and content platforms.  
-The goal of this project is to:
-
-- Recommend relevant content to users based on historical interactions
-- Handle cold-start users and items gracefully
-- Evaluate recommendation quality using ranking-based metrics
-- Build a production-style ML pipeline rather than a single notebook
 
 ---
 
-## 🧠 Approach Overview
+## 🚀 Projects
 
-### 1️⃣ Collaborative Filtering
-- Matrix Factorization using **Truncated SVD**
-- Learns latent user and item representations from interaction data
-- Captures implicit user preferences
+### 🔹 1. Personalized Content Recommendation System
+**Folder:** `personalized-recsys/`
 
-### 2️⃣ Content-Based Filtering
-- TF-IDF vectorization on **movie titles + genres**
-- Computes similarity between items
-- Effective for cold-start scenarios
+A **Netflix-style hybrid recommendation system** that combines:
+- Collaborative Filtering (Matrix Factorization using SVD)
+- Content-Based Filtering (TF-IDF on movie metadata)
+- Hybrid ranking with cold-start handling
 
-### 3️⃣ Hybrid Recommendation
-- Weighted combination of collaborative and content-based scores
-- Popularity-based fallback for extreme cold-start users
-- Produces robust and interpretable recommendations
+**Key Highlights**
+- End-to-end ML pipeline (data ingestion → training → evaluation)
+- Offline ranking metrics: Precision@K, Recall@K, NDCG@K, MAP@K
+- Modular, production-style Python codebase
+- Demo script to inspect real recommendations
+- Built using MovieLens 1M dataset
 
----
-
-## 🧪 Evaluation Strategy
-
-The system is evaluated using **offline ranking metrics** on the MovieLens 1M dataset:
-
-- **Precision@K**
-- **Recall@K**
-- **NDCG@K**
-- **MAP@K**
-
-Train/test split is performed **per user**, ensuring each user retains interaction history in training data.
-
-### 📊 Results (MovieLens 1M)
-
-| Metric        | Value   |
-|--------------|---------|
-| Precision@10 | 0.1596  |
-| Recall@10    | 0.0674  |
-| NDCG@10      | 0.1936  |
-| MAP@10       | 0.1072  |
+➡️ See `personalized-recsys/README.md` for full details.
 
 ---
 
-## 🗂 Project Structure
+## 🛠 Technologies Used
 
-personalized-recsys/
-├── requirements.txt
-├── README.md
-├── scripts/
-│ ├── download_movielens.py
-│ ├── run_pipeline.py
-│ └── demo_recommendations.py
-└── src/
-├── config.py
-├── data_load.py
-├── preprocess.py
-├── recommenders.py
-├── metrics.py
-├── evaluate.py
-└── utils.py
-
-**Design Principles**
-- Modular, testable components
-- Configuration-driven parameters
-- Clear separation between data, modeling, and evaluation
+- **Languages:** Python
+- **ML & Data:** NumPy, Pandas, Scikit-learn
+- **Evaluation:** Ranking-based metrics
+- **Engineering:** Modular code, configuration-driven pipelines, Git
+- **Datasets:** MovieLens (GroupLens)
 
 ---
 
-## 📦 Dataset
+## 🎯 Purpose of This Repository
 
-This project uses the **MovieLens 1M dataset**.
+This repository serves as:
+- A **technical portfolio** for Machine Learning / Data Engineering internships
+- A demonstration of **problem-solving and system design**
+- A foundation for experimenting with scalable ML systems
 
-- Source: https://grouplens.org/datasets/movielens/
-- Contains ~1M user-movie ratings
-- Dataset is **downloaded automatically** using a script
-
-⚠️ Dataset files are **not committed** to the repository.
+Future projects will extend into:
+- Distributed systems (Spark, Kafka)
+- Graph-based ML (Neo4j)
+- Advanced ML models and pipelines
 
 ---
 
-## ⚙️ Setup & Installation
+## 👤 Author
 
-### 1️⃣ Create virtual environment (recommended)
-```bash
-python -m venv venv
-source venv/bin/activate
+**Uttam**  
+Master’s Student – Data Science (Computing and Decision Analytics)
+Actively seeking **Machine Learning Engineer** and **Data Engineering Intern** roles.
+
+---
+
+## 📌 Notes
+
+- Large datasets and trained models are excluded from version control.
+- Each project is self-contained and reproducible.
