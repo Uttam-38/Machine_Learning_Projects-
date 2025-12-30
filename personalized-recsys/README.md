@@ -6,7 +6,7 @@ The system is designed with **software engineering best practices**, modular cod
 
 ---
 
-## 🔍 Problem Statement
+## Problem Statement
 
 Personalized recommendations are a core component of modern streaming and content platforms.  
 The goal of this project is to:
@@ -18,26 +18,26 @@ The goal of this project is to:
 
 ---
 
-## 🧠 Approach Overview
+## Approach Overview
 
-### 1️⃣ Collaborative Filtering
+### Collaborative Filtering
 - Matrix Factorization using **Truncated SVD**
 - Learns latent user and item representations from interaction data
 - Captures implicit user preferences
 
-### 2️⃣ Content-Based Filtering
+### Content-Based Filtering
 - TF-IDF vectorization on **movie titles + genres**
 - Computes similarity between items
 - Effective for cold-start scenarios
 
-### 3️⃣ Hybrid Recommendation
+### Hybrid Recommendation
 - Weighted combination of collaborative and content-based scores
 - Popularity-based fallback for extreme cold-start users
 - Produces robust and interpretable recommendations
 
 ---
 
-## 🧪 Evaluation Strategy
+## Evaluation Strategy
 
 The system is evaluated using **offline ranking metrics** on the MovieLens 1M dataset:
 
@@ -48,7 +48,7 @@ The system is evaluated using **offline ranking metrics** on the MovieLens 1M da
 
 Train/test split is performed **per user**, ensuring each user retains interaction history in training data.
 
-### 📊 Results (MovieLens 1M)
+### Results (MovieLens 1M)
 
 | Metric        | Value   |
 |--------------|---------|
@@ -59,7 +59,7 @@ Train/test split is performed **per user**, ensuring each user retains interacti
 
 ---
 
-## 🗂 Project Structure
+## Project Structure
 
 personalized-recsys/
 ├── requirements.txt
@@ -84,7 +84,7 @@ personalized-recsys/
 
 ---
 
-## 📦 Dataset
+## Dataset
 
 This project uses the **MovieLens 1M dataset**.
 
@@ -92,13 +92,13 @@ This project uses the **MovieLens 1M dataset**.
 - Contains ~1M user-movie ratings
 - Dataset is **downloaded automatically** using a script
 
-⚠️ Dataset files are **not committed** to the repository.
+ Dataset files are **not committed** to the repository.
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
-### 1️⃣ Create virtual environment (recommended)
+### Create virtual environment (recommended)
 ```bash
 python -m venv venv
 source venv/bin/activate
