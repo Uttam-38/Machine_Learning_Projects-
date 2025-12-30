@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Data and artifacts
+data/
+models/
+reports/
+
+# OS
+.DS_Store
