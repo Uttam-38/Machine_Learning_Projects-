@@ -30,3 +30,14 @@ python -m venv .venv
 source .venv/bin/activate  # (Windows: .venv\Scripts\activate)
 pip install -r requirements.txt
 pip install -e .
+
+### 2) Run one experiment
+python scripts/run_experiment.py --config configs/default.yaml --method erm
+python scripts/run_experiment.py --config configs/default.yaml --method groupdro
+python scripts/run_experiment.py --config configs/default.yaml --method coral
+python scripts/run_experiment.py --config configs/default.yaml --method iw
+
+### 3) Results
+runs/<timestamp>/metrics.json
+runs/<timestamp>/preds.csv
+runs/<timestamp>/plots/
