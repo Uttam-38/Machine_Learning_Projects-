@@ -1,0 +1,32 @@
+seed: 42
+
+data:
+  n_train: 30000
+  n_val: 5000
+  n_test: 10000
+  n_groups: 6
+  shift:
+    type: "region_device"   # options: none, region, device, region_device, concept
+    severity: 0.7           # 0 (no shift) to 1 (strong shift)
+
+model:
+  hidden_sizes: [64, 64]
+  dropout: 0.1
+
+train:
+  epochs: 15
+  batch_size: 512
+  lr: 1e-3
+  weight_decay: 1e-4
+  early_stop_patience: 3
+
+robust:
+  groupdro:
+    eta: 0.05
+  coral:
+    lambda: 1.0
+  iw:
+    clip: 10.0
+
+outputs:
+  out_dir: "runs"
