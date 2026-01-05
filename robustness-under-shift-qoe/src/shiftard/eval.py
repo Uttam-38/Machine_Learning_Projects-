@@ -1,14 +1,26 @@
 import os
-import json
 import numpy as np
 import matplotlib.pyplot as plt
 
 from shiftguard.metrics import accuracy, auroc, ece, worst_group_accuracy
 
 
+def _group_breakdown(y, p, group):
+    yp = (p >= 0.5).astype(int)
+    out = {}
+    for g in np.unique(group):
+        m = (group == g)
+        out[int(g)] = {
+            "n": int(m.sum()),
+            "accuracy": float((y[m] == yp[m]).mean()),
+            "positive_rate": float(y[m].mean()),
+            "avg_conf": float(p[m].mean()),
+        }
+    return out
+
+
 def evaluate_all(splits, preds):
     out = {}
-
     for split_name in ["train", "val", "test"]:
         y = splits[split_name]["y"]
         p = preds[f"{split_name}_prob"]
@@ -21,22 +33,21 @@ def evaluate_all(splits, preds):
             "ece": ece(y, p),
             "worst_group_accuracy": worst_group_accuracy(y, yp, g),
             "positive_rate": float(np.mean(y)),
+            "group_breakdown": _group_breakdown(y, p, g),
         }
-
     return out
 
 
 def save_plots(splits, preds, out_dir: str):
     os.makedirs(out_dir, exist_ok=True)
 
-    # Reliability diagram (test)
+    # reliability diagram (test)
     y = splits["test"]["y"]
     p = preds["test_prob"]
 
     bins = np.linspace(0, 1, 11)
     bin_ids = np.digitize(p, bins) - 1
-    bin_acc = []
-    bin_conf = []
+    bin_acc, bin_conf = [], []
     for b in range(10):
         m = bin_ids == b
         if m.sum() == 0:
@@ -51,11 +62,11 @@ def save_plots(splits, preds, out_dir: str):
     plt.scatter(bin_conf, bin_acc)
     plt.xlabel("confidence")
     plt.ylabel("accuracy")
-    plt.title("Reliability (Test)")
+    plt.title("Reliability Diagram (Test)")
     plt.savefig(os.path.join(out_dir, "reliability_test.png"), dpi=160, bbox_inches="tight")
     plt.close()
 
-    # Group accuracy bars (test)
+    # per-group accuracy (test)
     g = splits["test"]["group"]
     yp = (p >= 0.5).astype(int)
     group_ids = np.unique(g)
