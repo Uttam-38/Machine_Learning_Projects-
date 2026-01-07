@@ -1,0 +1,24 @@
+```toml
+[project]
+name = "streaming-quality"
+version = "0.1.0"
+description = "Streaming QoE prediction with offline training + online inference + drift monitoring"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "pyarrow>=15.0",
+  "scikit-learn>=1.3",
+  "xgboost>=2.0",
+  "pydantic>=2.0",
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "joblib>=1.3",
+  "pyyaml>=6.0",
+]
+
+[project.scripts]
+sq = "cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
