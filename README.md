@@ -1,169 +1,120 @@
-# Machine Learning Projects Portfolio
+# Machine Learning Projects
 
-A curated collection of **end-to-end machine learning projects** demonstrating applied data science, model development, evaluation, and real-world problem solving.  
-This repository focuses on **clarity, reproducibility, and practical impact**, following industry-grade ML workflows.
-
-Each project is self-contained and highlights a specific machine learning problem, dataset, modeling approach, and evaluation strategy.
+A curated portfolio of **end-to-end machine learning systems** spanning **ranking, recommendation, robustness under distribution shift, and quality-of-experience prediction**.  
+Each project is structured to demonstrate strong ML fundamentals, evaluation rigor, and production-shaped engineering practices (reproducible pipelines, modular code, artifact outputs).
 
 ---
 
-## Repository Objectives
+## What’s in this repository
 
-- Apply machine learning algorithms to **realistic datasets**
-- Demonstrate **problem framing → modeling → evaluation → insights**
-- Emphasize **model reasoning, trade-offs, and metrics**
-- Follow clean, readable, and reproducible code practices
-- Build a portfolio aligned with **production-oriented ML roles**
+This repository currently contains the following projects:
 
----
+| Project | Domain | Core ML Task | Key Metrics |
+|--------|--------|--------------|-------------|
+| **Search Ranking System for Streaming Content** | Search & Discovery | Learning-to-Rank | NDCG@K, MRR@K, Precision/Recall@K |
+| **personalized-recsys** | Personalization | Recommendation & Ranking | MAP@K, NDCG@K, Recall@K (project-specific) |
+| **robustness-under-shift-qoe** | Reliability | Robustness under Distribution Shift | Calibration, performance under shift, error analysis |
+| **streaming-quality-prediction** | Media / QoE | Prediction & Monitoring | RMSE/MAE (or classification metrics), trend/anomaly analysis |
 
-## Tech Stack
-
-- **Programming**: Python  
-- **Data Handling**: pandas, NumPy  
-- **Visualization**: matplotlib, seaborn  
-- **Machine Learning**: scikit-learn  
-- **Models Used**:
-  - Logistic Regression
-  - Support Vector Machines (SVM)
-  - k-Nearest Neighbors (KNN)
-  - Decision Trees
-  - Ensemble methods
-- **Evaluation**:
-  - Accuracy, Precision, Recall, F1-Score
-  - Confusion Matrix
-  - Cross-Validation
+> Repo folders: `Search Ranking System for Streaming Content/`, `personalized-recsys/`, `robustness-under-shift-qoe/`, `streaming-quality-prediction/`.  
 
 ---
 
-## Project Index
+## Technical Focus Areas
 
-| Project | Problem Type | Techniques Used |
-|------|-------------|----------------|
-| Dataset Classification | Supervised Classification | Logistic Regression, SVM |
-| Loan Prediction System | Binary Classification | SVM, Feature Engineering |
-| Restaurant Recommendation System | Recommendation System | Collaborative & Content-Based Filtering |
-| Customer / Dataset Analysis Projects | Predictive Modeling | Exploratory Analysis, ML Pipelines |
-
----
-
-## Projects Overview
+- **Learning-to-Rank (LTR)**: query/session grouping, pairwise objectives, offline ranking metrics
+- **Recommender Systems**: personalization signals, candidate ranking, top-K evaluation
+- **Robust ML**: distribution shift evaluation, stability analysis, diagnostic reporting
+- **Quality-of-Experience Modeling**: feature engineering, prediction, monitoring-style evaluation
+- **Engineering Practices**: reproducible runs, deterministic seeds, modular pipeline stages, artifact outputs
 
 ---
 
-### 1. Dataset Classification
+## Tech Stack (common)
 
-**Problem Statement**  
-Classify structured datasets into predefined categories using supervised learning techniques.
-
-**Approach**
-- Performed data cleaning and preprocessing
-- Applied feature scaling and transformation
-- Trained classification models including Logistic Regression and SVM
-- Compared models using performance metrics
-
-**Key Concepts**
-- Feature engineering
-- Model comparison
-- Bias-variance considerations
-
-**Evaluation Metrics**
-- Accuracy
-- Precision
-- Recall
-- F1-Score
-
-**Outcome**
-- Built a robust classification pipeline
-- Demonstrated how model choice impacts classification performance
+- **Language**: Python
+- **Core Libraries**: NumPy, pandas, scikit-learn
+- **Modeling**: XGBoost / tree models / classical ML (project-dependent)
+- **Evaluation**: ranking metrics (NDCG/MRR/MAP), regression/classification metrics
+- **Artifacts**: parquet/CSV outputs, serialized models, metric JSON reports
 
 ---
 
-### 2. Loan Prediction System (SVM-Based)
+## Projects
 
-**Problem Statement**  
-Predict whether a loan applicant is eligible for loan approval based on financial and demographic features.
+### 1) Search Ranking System for Streaming Content
+**Goal**: Build a learning-to-rank pipeline that ranks content results for a given query/session using a multi-stage workflow:
+**data → sessions → features → ranker training → offline evaluation → inference.**
 
-**Approach**
-- Cleaned and processed structured financial data
-- Handled missing values and categorical variables
-- Trained a Support Vector Machine (SVM) classifier
-- Tuned hyperparameters for optimal decision boundaries
+**What it demonstrates**
+- Query/session-aware ranking (grouped training)
+- Feature engineering spanning relevance + personalization + popularity signals
+- Pairwise ranking model training and evaluation with ranking metrics
 
-**Key Concepts**
-- Binary classification
-- Margin-based learning
-- Feature normalization
+**Typical outputs**
+- Sessionized training data (e.g., `sessions.parquet`)
+- Feature table (e.g., `features.parquet`)
+- Model artifact (e.g., `ranker.joblib`)
+- Offline metrics report (e.g., `metrics.json`)
 
-**Evaluation Metrics**
-- Confusion Matrix
-- Precision / Recall trade-offs
-- Overall classification accuracy
-
-**Outcome**
-- Developed a decision-support style ML model
-- Highlighted interpretability and risk trade-offs in financial ML systems
+**Metrics**
+- NDCG@K, MRR@K, Precision@K, Recall@K
 
 ---
 
-### 3. Restaurant Recommendation System
+### 2) personalized-recsys
+**Goal**: Build a personalized recommendation workflow that ranks items per user using interaction signals and content metadata.
 
-**Problem Statement**  
-Recommend restaurants to users based on preferences and historical interaction patterns.
+**What it demonstrates**
+- Personalization signal design (user affinity / item popularity / content similarity)
+- Top-K evaluation that mirrors recommendation workloads
+- Modular separation of retrieval vs ranking (if implemented in the project)
 
-**Approach**
-- Implemented content-based filtering using item features
-- Explored collaborative filtering logic
-- Designed similarity-based recommendation logic
-- Ranked recommendations based on relevance scores
-
-**Key Concepts**
-- Recommendation systems
-- Similarity metrics
-- User-item interactions
-
-**Evaluation**
-- Qualitative evaluation of recommendation relevance
-- Ranking consistency analysis
-
-**Outcome**
-- Demonstrated foundational recommendation system concepts
-- Built a flexible framework extendable to large-scale datasets
+**Metrics (examples)**
+- NDCG@K, MAP@K, Recall@K, HitRate@K (based on the project implementation)
 
 ---
 
-### 4. Additional Machine Learning Experiments
+### 3) robustness-under-shift-qoe
+**Goal**: Study model performance under **distribution shift** and build diagnostics that explain failure modes.
 
-This repository also includes smaller experiments and learning-oriented projects focusing on:
-- Dataset exploration
-- Feature selection strategies
-- Model tuning and validation
-- Understanding algorithm behavior across datasets
+**What it demonstrates**
+- Shift-aware evaluation (train vs test mismatch)
+- Robustness analysis (performance stratified by segments)
+- Error analysis and metric reporting for reliability-focused ML
 
-These projects reinforce **core ML fundamentals** and serve as reusable references.
-
----
-
-## Code Organization
-
-- Each project is organized in its own directory
-- Scripts follow a logical flow:
-  - Data loading
-  - Preprocessing
-  - Model training
-  - Evaluation
-- Code prioritizes readability and modularity
+**Metrics (examples)**
+- Performance deltas under shift (e.g., ΔAUC/ΔRMSE), calibration error, slice-based analysis
 
 ---
 
-## How to Run
+### 4) streaming-quality-prediction
+**Goal**: Predict streaming quality/QoE signals using engineered features and evaluate model quality for monitoring use-cases.
 
-1. Clone the repository
+**What it demonstrates**
+- Feature engineering for operational prediction tasks
+- Regression/classification modeling (depending on labels)
+- Reporting that aligns with monitoring/decision-support workflows
+
+**Metrics (examples)**
+- RMSE/MAE for regression; Precision/Recall/F1/AUC for classification (based on the project implementation)
+
+---
+
+## Getting Started
+
+### 1) Clone the repository
+
 git clone https://github.com/Uttam-38/Machine_Learning_Projects-.git
 cd Machine_Learning_Projects-
 
-2. Install dependencies
-pip install numpy pandas scikit-learn matplotlib seaborn
+### 2) Create an environment
+python -m venv .venv
+# macOS/Linux
+source .venv/bin/activate
+# Windows
+# .venv\Scripts\activate
 
-3. Navigate to any project directory and run the script
-python main.py
+### 3) Install dependencies
+pip install -U pip
+pip install numpy pandas scikit-learn matplotlib xgboost
