@@ -110,10 +110,10 @@ cd Machine_Learning_Projects-
 
 ### 2) Create an environment
 python -m venv .venv
-# macOS/Linux
+### macOS/Linux
 source .venv/bin/activate
-# Windows
-# .venv\Scripts\activate
+### Windows
+### .venv\Scripts\activate
 
 ### 3) Install dependencies
 pip install -U pip
