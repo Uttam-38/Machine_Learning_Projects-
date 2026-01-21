@@ -1,73 +1,169 @@
 # Machine Learning Projects Portfolio
 
-This repository contains a curated collection of **end-to-end Machine Learning and Data Engineering projects** that demonstrate my experience in building **scalable, reproducible, and production-style ML systems**.
+A curated collection of **end-to-end machine learning projects** demonstrating applied data science, model development, evaluation, and real-world problem solving.  
+This repository focuses on **clarity, reproducibility, and practical impact**, following industry-grade ML workflows.
 
-The projects emphasize:
-- Practical machine learning algorithms
-- Data preprocessing and feature engineering
-- Model evaluation using appropriate metrics
-- Clean software engineering practices
-- Real-world datasets and problem statements
-
-Each project is organized as an independent, runnable module with its own documentation and scripts.
-
+Each project is self-contained and highlights a specific machine learning problem, dataset, modeling approach, and evaluation strategy.
 
 ---
 
-## 🚀 Projects
+## Repository Objectives
 
-### 🔹 1. Personalized Content Recommendation System
-**Folder:** `personalized-recsys/`
-
-A **Netflix-style hybrid recommendation system** that combines:
-- Collaborative Filtering (Matrix Factorization using SVD)
-- Content-Based Filtering (TF-IDF on movie metadata)
-- Hybrid ranking with cold-start handling
-
-**Key Highlights**
-- End-to-end ML pipeline (data ingestion → training → evaluation)
-- Offline ranking metrics: Precision@K, Recall@K, NDCG@K, MAP@K
-- Modular, production-style Python codebase
-- Demo script to inspect real recommendations
-- Built using MovieLens 1M dataset
-
-➡️ See `personalized-recsys/README.md` for full details.
+- Apply machine learning algorithms to **realistic datasets**
+- Demonstrate **problem framing → modeling → evaluation → insights**
+- Emphasize **model reasoning, trade-offs, and metrics**
+- Follow clean, readable, and reproducible code practices
+- Build a portfolio aligned with **production-oriented ML roles**
 
 ---
 
-## 🛠 Technologies Used
+## Tech Stack
 
-- **Languages:** Python
-- **ML & Data:** NumPy, Pandas, Scikit-learn
-- **Evaluation:** Ranking-based metrics
-- **Engineering:** Modular code, configuration-driven pipelines, Git
-- **Datasets:** MovieLens (GroupLens)
-
----
-
-## 🎯 Purpose of This Repository
-
-This repository serves as:
-- A **technical portfolio** for Machine Learning / Data Engineering internships
-- A demonstration of **problem-solving and system design**
-- A foundation for experimenting with scalable ML systems
-
-Future projects will extend into:
-- Distributed systems (Spark, Kafka)
-- Graph-based ML (Neo4j)
-- Advanced ML models and pipelines
+- **Programming**: Python  
+- **Data Handling**: pandas, NumPy  
+- **Visualization**: matplotlib, seaborn  
+- **Machine Learning**: scikit-learn  
+- **Models Used**:
+  - Logistic Regression
+  - Support Vector Machines (SVM)
+  - k-Nearest Neighbors (KNN)
+  - Decision Trees
+  - Ensemble methods
+- **Evaluation**:
+  - Accuracy, Precision, Recall, F1-Score
+  - Confusion Matrix
+  - Cross-Validation
 
 ---
 
-## 👤 Author
+## Project Index
 
-**Uttam**  
-Master’s Student – Data Science (Computing and Decision Analytics)
-Actively seeking **Machine Learning Engineer** and **Data Engineering Intern** roles.
+| Project | Problem Type | Techniques Used |
+|------|-------------|----------------|
+| Dataset Classification | Supervised Classification | Logistic Regression, SVM |
+| Loan Prediction System | Binary Classification | SVM, Feature Engineering |
+| Restaurant Recommendation System | Recommendation System | Collaborative & Content-Based Filtering |
+| Customer / Dataset Analysis Projects | Predictive Modeling | Exploratory Analysis, ML Pipelines |
 
 ---
 
-## 📌 Notes
+## Projects Overview
 
-- Large datasets and trained models are excluded from version control.
-- Each project is self-contained and reproducible.
+---
+
+### 1. Dataset Classification
+
+**Problem Statement**  
+Classify structured datasets into predefined categories using supervised learning techniques.
+
+**Approach**
+- Performed data cleaning and preprocessing
+- Applied feature scaling and transformation
+- Trained classification models including Logistic Regression and SVM
+- Compared models using performance metrics
+
+**Key Concepts**
+- Feature engineering
+- Model comparison
+- Bias-variance considerations
+
+**Evaluation Metrics**
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+
+**Outcome**
+- Built a robust classification pipeline
+- Demonstrated how model choice impacts classification performance
+
+---
+
+### 2. Loan Prediction System (SVM-Based)
+
+**Problem Statement**  
+Predict whether a loan applicant is eligible for loan approval based on financial and demographic features.
+
+**Approach**
+- Cleaned and processed structured financial data
+- Handled missing values and categorical variables
+- Trained a Support Vector Machine (SVM) classifier
+- Tuned hyperparameters for optimal decision boundaries
+
+**Key Concepts**
+- Binary classification
+- Margin-based learning
+- Feature normalization
+
+**Evaluation Metrics**
+- Confusion Matrix
+- Precision / Recall trade-offs
+- Overall classification accuracy
+
+**Outcome**
+- Developed a decision-support style ML model
+- Highlighted interpretability and risk trade-offs in financial ML systems
+
+---
+
+### 3. Restaurant Recommendation System
+
+**Problem Statement**  
+Recommend restaurants to users based on preferences and historical interaction patterns.
+
+**Approach**
+- Implemented content-based filtering using item features
+- Explored collaborative filtering logic
+- Designed similarity-based recommendation logic
+- Ranked recommendations based on relevance scores
+
+**Key Concepts**
+- Recommendation systems
+- Similarity metrics
+- User-item interactions
+
+**Evaluation**
+- Qualitative evaluation of recommendation relevance
+- Ranking consistency analysis
+
+**Outcome**
+- Demonstrated foundational recommendation system concepts
+- Built a flexible framework extendable to large-scale datasets
+
+---
+
+### 4. Additional Machine Learning Experiments
+
+This repository also includes smaller experiments and learning-oriented projects focusing on:
+- Dataset exploration
+- Feature selection strategies
+- Model tuning and validation
+- Understanding algorithm behavior across datasets
+
+These projects reinforce **core ML fundamentals** and serve as reusable references.
+
+---
+
+## Code Organization
+
+- Each project is organized in its own directory
+- Scripts follow a logical flow:
+  - Data loading
+  - Preprocessing
+  - Model training
+  - Evaluation
+- Code prioritizes readability and modularity
+
+---
+
+## How to Run
+
+1. Clone the repository
+git clone https://github.com/Uttam-38/Machine_Learning_Projects-.git
+cd Machine_Learning_Projects-
+
+2. Install dependencies
+pip install numpy pandas scikit-learn matplotlib seaborn
+
+3. Navigate to any project directory and run the script
+python main.py
