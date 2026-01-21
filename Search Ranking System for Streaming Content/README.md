@@ -126,24 +126,24 @@ The project uses the **MovieLens 1M** dataset to simulate search behavior:
 
 python -m venv .venv
 source .venv/bin/activate     # Mac/Linux
-# .venv\Scripts\activate      # Windows
+## .venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 
-# 2. Download Dataset
+## 2. Download Dataset
 python -m src.download_data
 
-# 3. Generate Sessions and Features
+## 3. Generate Sessions and Features
 python -m src.make_dataset
 python -m src.features
 
-# 4. Train Ranking Model
+## 4. Train Ranking Model
 python -m src.train
 
-# 5. Evaluate Ranking Quality
+## 5. Evaluate Ranking Quality
 python -m src.evaluate
 
-# 6. Run Inference
+## 6. Run Inference
 python -m src.inference --user_id 42 --query "action"
 
-# 7. Run Baseline Comparison
+## 7. Run Baseline Comparison
 python -m src.ab_simulator
